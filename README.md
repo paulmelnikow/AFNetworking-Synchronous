@@ -4,22 +4,20 @@ AFNetworking-Synchronous
 A minimal category which extends [AFNetworking][], specifically
 `AFHTTPClient`, to support synchronous requests.
 
-For Mac OS and iOS. (Tested on Mac OS)
+## Example
 
-# Example
-
-````
+```objective-c
 NSError *error = nil;
 NSData *result =
 [[AFHTTPClient sharedClient] synchronouslyGetPath:@"/document/123"
                                        parameters:nil
                                         operation:NULL
                                             error:&error];
-````
+```
 
-# Discussion
+## Discussion
 
-## First, consider adopting an asynchronous design
+### First, consider adopting an asynchronous design
  
 Before you decide to use this category, consider whether you can adopt an asynchronous design instead. As @mattt wrote, asynchronism a tough thing to
 get your head around, but it's well worth the mental overhead. Rather than creating methods that fetch and return network data, use blocks or delegate methods to call back with the results when you have them.
@@ -38,8 +36,12 @@ However, in some cases, a synchronous response is better, such as when the docum
  
 While it overrides the default success and failure queues to avoid a deadlock, it can't anticipate every possible situation. In particular, you should not set the queue from which you're invoking as the processing queue, which will cause a deadlock.
  
-## The Main Thread
+### The Main Thread
  
 You shouldn't call these methods from the main thread. On iOS, if your application enters the background while one of these methods is running on the main thread, a deadlock may result and your application could be terminated.
+
+## Notes
+
+Developed for Mac OS and iOS. Tested on Mac OS.
 
 [AFNetworking]: https://github.com/AFNetworking/AFNetworking
