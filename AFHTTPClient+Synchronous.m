@@ -38,11 +38,11 @@ NSInteger const AFHTTPClientBackgroundTaskExpiredError = -1001;
     return queue;
 }
 
-- (id)synchronouslyPerformMethod:(NSString *) method
-                            path:(NSString *) path
+- (id)synchronouslyPerformMethod:(NSString *)method
+                            path:(NSString *)path
                       parameters:(NSDictionary *)parameters
-                       operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
-                           error:(NSError *__autoreleasing *) outError
+                       operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
+                           error:(NSError *__autoreleasing *)outError
 {
     __block id result = nil;
     

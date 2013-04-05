@@ -54,33 +54,33 @@ FOUNDATION_EXPORT NSInteger const AFHTTPClientBackgroundTaskExpiredError;
 
 - (id)synchronouslyGetPath:(NSString *)path
                 parameters:(NSDictionary *)parameters
-                 operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+                 operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
                      error:(NSError *__autoreleasing *)outError;
 
 - (id)synchronouslyPostPath:(NSString *)path
                  parameters:(NSDictionary *)parameters
-                  operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+                  operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
                       error:(NSError *__autoreleasing *)outError;
 
 - (id)synchronouslyPutPath:(NSString *)path
                 parameters:(NSDictionary *)parameters
-                 operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+                 operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
                      error:(NSError *__autoreleasing *)outError;
 
 - (id)synchronouslyDeletePath:(NSString *)path
                    parameters:(NSDictionary *)parameters
-                    operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+                    operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
                         error:(NSError *__autoreleasing *)outError;
 
 - (id)synchronouslyPatchPath:(NSString *)path
                   parameters:(NSDictionary *)parameters
-                   operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+                   operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
                        error:(NSError *__autoreleasing *)outError;
 
-- (id)synchronouslyPerformMethod:(NSString *) method
-                            path:(NSString *) path
+- (id)synchronouslyPerformMethod:(NSString *)method
+                            path:(NSString *)path
                       parameters:(NSDictionary *)parameters
-                       operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+                       operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
                            error:(NSError *__autoreleasing *)outError;
 
 @end

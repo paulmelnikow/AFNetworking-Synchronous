@@ -10,7 +10,7 @@ A minimal category which extends [AFNetworking][], specifically
 NSError *error = nil;
 NSData *result =
 [[AFHTTPClient sharedClient] synchronouslyGetPath:@"/document/123"
-                                       parameters:nil
+                                       parameters:paramDict
                                         operation:NULL
                                             error:&error];
 ```
