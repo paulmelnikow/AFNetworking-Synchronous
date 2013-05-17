@@ -21,7 +21,7 @@
 // THE SOFTWARE.
 
 #import "AFHTTPClient+Synchronous.h"
-#import "AFHTTPRequestOperation.h"
+#import "AFHTTPRequestOperation+ResponseObject.h"
 
 NSString * const AFHTTPClientErrorDomain = @"com.alamofire.httpclient";
 NSInteger const AFHTTPClientBackgroundTaskExpiredError = -1001;
@@ -44,25 +44,9 @@ NSInteger const AFHTTPClientBackgroundTaskExpiredError = -1001;
                        operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
                            error:(NSError *__autoreleasing *)outError
 {
-    __block id result = nil;
-    
-    dispatch_group_t group = dispatch_group_create();
-    
     NSURLRequest *request = [self requestWithMethod:method path:path parameters:parameters];
-    AFHTTPRequestOperation *op = [self HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (operationPtr) *operationPtr = operation;
-        result = responseObject;
-        dispatch_group_leave(group);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (operationPtr) *operationPtr = operation;
-        if (outError) *outError = error;
-        dispatch_group_leave(group);
-    }];
-    
-    // Since the caller will wait until the callbacks finish executing, we need to deliver
-    // these callbacks on a queue which is not the caller's.
-    op.successCallbackQueue = op.failureCallbackQueue = [self.class sharedCallbackQueue];
-    
+    AFHTTPRequestOperation *op = [self HTTPRequestOperationWithRequest:request success:nil failure:nil];
+        
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
     // By registering the operation as a long-running background task, if the app enters
     // background, it is more likely to complete. However, it does not guarantee that the
@@ -83,19 +67,17 @@ NSInteger const AFHTTPClientBackgroundTaskExpiredError = -1001;
                 [NSError errorWithDomain:AFHTTPClientErrorDomain
                                     code:AFHTTPClientBackgroundTaskExpiredError
                                 userInfo:@{ NSLocalizedDescriptionKey: @"Background operation time expired" }];
-            dispatch_group_leave(group);
         }];
         // At this point this thread may wake up but probably isn't guaranteed to do so.
     }
 #endif
     
-    dispatch_group_enter(group);
     [op start];
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-#if !OS_OBJECT_USE_OBJC
-    dispatch_release(group);
-#endif
-    return result;
+    [op waitUntilFinished];
+    
+    if (operationPtr) *operationPtr = op;
+    if (outError) *outError = [op error];
+    return [op responseObject];
 }
 
 - (id)synchronouslyGetPath:(NSString *)path
