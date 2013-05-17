@@ -42,7 +42,9 @@ You shouldn't call these methods from the main thread. On iOS, if your applicati
 
 ### AFImageRequestOperation processingBlock and custom operation subclasses
  
-This category is suitable for most of the request operation subclasses built into AFNetworking, which process their response objects synchronously. If you're using the processingBlock on AFImageRequestOperation, which contains essential processing in the completion handler, or your subclass performs other asynchronous processing in the completion handler, use the version in the [`using-completion-blocks` branch][using-completion-blocks] instead.
+This category is suitable for most of the request operation subclasses built into AFNetworking, which process their response objects synchronously.
+
+**If you're using the processingBlock on AFImageRequestOperation, which contains essential processing in the completion handler, or your subclass performs other asynchronous processing in the completion handler, use the version in the [using-completion-blocks branch][using-completion-blocks] instead.**
  
 All custom subclasses must override `-responseObject`. See `AFHTTPRequestOperation+ResponseObject.h` for more information.
 
