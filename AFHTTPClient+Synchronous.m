@@ -23,20 +23,7 @@
 #import "AFHTTPClient+Synchronous.h"
 #import "AFHTTPRequestOperation+ResponseObject.h"
 
-NSString * const AFHTTPClientErrorDomain = @"com.alamofire.httpclient";
-NSInteger const AFHTTPClientBackgroundTaskExpiredError = -1001;
-
 @implementation AFHTTPClient (Synchronous)
-
-+ (dispatch_queue_t)sharedCallbackQueue {
-    static dispatch_queue_t queue;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        queue = dispatch_queue_create("com.alamofire.networking.httpclient_synchronous.callbacks", DISPATCH_QUEUE_CONCURRENT);
-    });
-    
-    return queue;
-}
 
 - (id)synchronouslyPerformMethod:(NSString *)method
                             path:(NSString *)path
@@ -75,8 +62,8 @@ NSInteger const AFHTTPClientBackgroundTaskExpiredError = -1001;
     [op start];
     [op waitUntilFinished];
     
-    if (operationPtr) *operationPtr = op;
-    if (outError) *outError = [op error];
+    if (operationPtr != nil) *operationPtr = op;
+    if (outError != nil) *outError = [op error];
     return [op responseObject];
 }
 
