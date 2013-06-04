@@ -22,6 +22,11 @@
 
 #import "AFHTTPClient.h"
 
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+FOUNDATION_EXPORT NSString * const AFHTTPClientErrorDomain;
+FOUNDATION_EXPORT NSInteger const AFHTTPClientBackgroundTaskExpiredError;
+#endif
+
 /**
  A minimal category which extends AFHTTPClient to support synchronous requests.
  

@@ -23,6 +23,9 @@
 #import "AFHTTPClient+Synchronous.h"
 #import "AFHTTPRequestOperation+ResponseObject.h"
 
+NSString * const AFHTTPClientErrorDomain = @"com.alamofire.httpclient";
+NSInteger const AFHTTPClientBackgroundTaskExpiredError = -1001;
+
 @implementation AFHTTPClient (Synchronous)
 
 - (id)synchronouslyPerformMethod:(NSString *)method
