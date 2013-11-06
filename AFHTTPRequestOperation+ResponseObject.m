@@ -10,7 +10,7 @@
 
 @implementation AFHTTPRequestOperation (ResponseObject)
 
-- (id) responseObject { return nil; }
+- (id) responseObject { return [self responseData]; }
 
 @end
 
