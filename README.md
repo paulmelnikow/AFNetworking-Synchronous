@@ -7,12 +7,12 @@ A minimal category which extends [AFNetworking][], specifically
 ## Example
 
 ```objective-c
+AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:...];
 NSError *error = nil;
-NSData *result =
-[[AFHTTPClient sharedClient] synchronouslyGetPath:@"/document/123"
-                                       parameters:paramDict
-                                        operation:NULL
-                                            error:&error];
+NSData *result = [client synchronouslyGetPath:@"/document/123"
+                                   parameters:paramDict
+                                    operation:NULL
+                                        error:&error];
 ```
 
 ## Discussion
