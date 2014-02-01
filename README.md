@@ -1,7 +1,7 @@
 AFNetworking-Synchronous
 ========================
 
-A minimal category which extends [AFNetworking][], specifically
+A minimal category which extends [AFNetworking][] 1.x, specifically
 `AFHTTPClient`, to support synchronous requests.
 
 ## Example
