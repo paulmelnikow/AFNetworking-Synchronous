@@ -4,8 +4,6 @@ AFNetworking-Synchronous
 A minimal category which extends [AFNetworking][] to support synchronous
 requests.
 
-1.x, specifically
-`AFHTTPClient`, to support synchronous requests.
 
 ## Example (1.x)
 
@@ -38,6 +36,9 @@ NSData *result = [manager syncGET:@"/document/123"
                         operation:NULL
                             error:&error];
 ```
+
+Currently there is no support for AFHTTPSessionManager.
+
 
 ## Discussion
 
