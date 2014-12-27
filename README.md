@@ -7,7 +7,12 @@ requests.
 1.x, specifically
 `AFHTTPClient`, to support synchronous requests.
 
-## Example
+## Example (1.x)
+
+```rb
+  pod 'AFNetworking', '~> 1.0'
+  pod 'AFNetworking-Synchronous/1.x'
+```
 
 ```objective-c
 AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:...];
@@ -16,6 +21,22 @@ NSData *result = [client synchronouslyGetPath:@"/document/123"
                                    parameters:paramDict
                                     operation:NULL
                                         error:&error];
+```
+
+## Example (2.x)
+
+```rb
+  pod 'AFNetworking', '~> 2.0'
+  pod 'AFNetworking-Synchronous/2.x'
+```
+
+```objective-c
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+NSError *error = nil;
+NSData *result = [manager syncGET:@"/document/123"
+                       parameters:paramDict
+                        operation:NULL
+                            error:&error];
 ```
 
 ## Discussion

@@ -26,13 +26,16 @@
 @implementation AFHTTPRequestOperationManager (Synchronous)
 
 - (id)synchronouslyPerformMethod:(NSString *)method
-                            path:(NSString *)path
+                       URLString:(NSString *)URLString
                       parameters:(NSDictionary *)parameters
                        operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                           error:(NSError *__autoreleasing *)outError
-{
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:path relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
-    AFHTTPRequestOperation *op = [self HTTPRequestOperationWithRequest:request success:nil failure:nil];
+                           error:(NSError *__autoreleasing *)outError {
+
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:@"GET" URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
+
+    AFHTTPRequestOperation *op = [self HTTPRequestOperationWithRequest:request
+                                                               success:nil
+                                                               failure:nil];
     
     [op start];
     [op waitUntilFinished];
@@ -46,95 +49,44 @@
     return responseObject;
 }
 
-- (id)synchronouslyPerformMethod:(NSString *)method
-                            path:(NSString *)path
-                            data:(NSData *)data
-                      serializer:(AFHTTPRequestSerializer*)serializer
-                       operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                           error:(NSError *__autoreleasing *)outError
+- (id)syncGET:(NSString *)URLString
+   parameters:(NSDictionary *)parameters
+    operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
+        error:(NSError *__autoreleasing *)outError
 {
-    
-    
-    NSURLRequest *request = [serializer requestWithMethod:method URLString:[[NSURL URLWithString:path relativeToURL:self.baseURL] absoluteString] parameters:data error:outError];
-    AFHTTPRequestOperation *op = [self HTTPRequestOperationWithRequest:request success:nil failure:nil];
-        
-    [op start];
-    [op waitUntilFinished];
-    
-    if (operationPtr != nil) *operationPtr = op;
-    
-    // Must call responseObject before checking the error
-    id responseObject = [op responseObject];
-    if (outError != nil) *outError = [op error];
-    
-    return responseObject;
+    return [self synchronouslyPerformMethod:@"GET" URLString:URLString parameters:parameters operation:operationPtr error:outError];
 }
 
-- (id)synchronouslyGetPath:(NSString *)path
-                parameters:(NSDictionary *)parameters
-                 operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                     error:(NSError *__autoreleasing *)outError
+- (id)syncPOST:(NSString *)URLString
+    parameters:(NSDictionary *)parameters
+     operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+         error:(NSError *__autoreleasing *) outError
 {
-    return [self synchronouslyPerformMethod:@"GET" path:path parameters:parameters operation:operationPtr error:outError];
+    return [self synchronouslyPerformMethod:@"POST" URLString:URLString parameters:parameters operation:operationPtr error:outError];
 }
 
-- (id)synchronouslyPostPath:(NSString *)path
-                 parameters:(NSDictionary *)parameters
-                  operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
-                      error:(NSError *__autoreleasing *) outError
+- (id)syncPUT:(NSString *)URLString
+   parameters:(NSDictionary *)parameters
+    operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+        error:(NSError *__autoreleasing *) outError
 {
-    return [self synchronouslyPerformMethod:@"POST" path:path parameters:parameters operation:operationPtr error:outError];
+    return [self synchronouslyPerformMethod:@"PUT" URLString:URLString parameters:parameters operation:operationPtr error:outError];
 }
 
-- (id)synchronouslyPutPath:(NSString *)path
-                parameters:(NSDictionary *)parameters
-                 operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
-                     error:(NSError *__autoreleasing *) outError
+- (id)syncDELETE:(NSString *)URLString
+      parameters:(NSDictionary *)parameters
+       operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+           error:(NSError *__autoreleasing *) outError
 {
-    return [self synchronouslyPerformMethod:@"PUT" path:path parameters:parameters operation:operationPtr error:outError];
+    return [self synchronouslyPerformMethod:@"DELETE" URLString:URLString parameters:parameters operation:operationPtr error:outError];
 }
 
-- (id)synchronouslyDeletePath:(NSString *)path
-                   parameters:(NSDictionary *)parameters
-                    operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
-                        error:(NSError *__autoreleasing *) outError
+- (id)syncPATCH:(NSString *)URLString
+     parameters:(NSDictionary *)parameters
+      operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+          error:(NSError *__autoreleasing *) outError
 {
-    return [self synchronouslyPerformMethod:@"DELETE" path:path parameters:parameters operation:operationPtr error:outError];
-}
-
-- (id)synchronouslyPatchPath:(NSString *)path
-                  parameters:(NSDictionary *)parameters
-                   operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
-                       error:(NSError *__autoreleasing *) outError
-{
-    return [self synchronouslyPerformMethod:@"PATCH" path:path parameters:parameters operation:operationPtr error:outError];
-}
-
-- (id)synchronouslyPostPath:(NSString *)path
-                       data:(NSData *)data
-                 serializer:(AFHTTPRequestSerializer *)serializer
-                  operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                      error:(NSError *__autoreleasing *)outError
-{
-    return [self synchronouslyPerformMethod:@"POST" path:path data:data serializer:serializer operation:operationPtr error:outError];
-}
-
-- (id)synchronouslyPutPath:(NSString *)path
-                      data:(NSData *)data
-                serializer:(AFHTTPRequestSerializer *)serializer
-                 operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                     error:(NSError *__autoreleasing *)outError
-{
-    return [self synchronouslyPerformMethod:@"PUT" path:path data:data serializer:serializer operation:operationPtr error:outError];
-}
-
-- (id)synchronouslyDeletePath:(NSString *)path
-                      data:(NSData *)data
-                serializer:(AFHTTPRequestSerializer *)serializer
-                 operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                     error:(NSError *__autoreleasing *)outError
-{
-    return [self synchronouslyPerformMethod:@"DELETE" path:path data:data serializer:serializer operation:operationPtr error:outError];
+    return [self synchronouslyPerformMethod:@"PATCH" URLString:URLString parameters:parameters operation:operationPtr error:outError];
 }
 
 @end

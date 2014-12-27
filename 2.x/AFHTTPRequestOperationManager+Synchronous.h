@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <AFHTTPRequestOperationManager.h>
+#import "AFHTTPRequestOperationManager.h"
 
 /**
  
@@ -51,53 +51,35 @@
 */
 @interface AFHTTPRequestOperationManager (Synchronous)
 
-- (id)synchronouslyGetPath:(NSString *)path
-                parameters:(NSDictionary *)parameters
-                 operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                     error:(NSError *__autoreleasing *)outError;
+- (id)syncGET:(NSString *)path
+   parameters:(NSDictionary *)parameters
+    operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
+        error:(NSError *__autoreleasing *)outError;
 
-- (id)synchronouslyPostPath:(NSString *)path
-                 parameters:(NSDictionary *)parameters
-                  operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                      error:(NSError *__autoreleasing *)outError;
+- (id)syncPOST:(NSString *)path
+    parameters:(NSDictionary *)parameters
+     operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+         error:(NSError *__autoreleasing *) outError;
 
-- (id)synchronouslyPutPath:(NSString *)path
-                parameters:(NSDictionary *)parameters
-                 operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                     error:(NSError *__autoreleasing *)outError;
+- (id)syncPUT:(NSString *)path
+   parameters:(NSDictionary *)parameters
+    operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+        error:(NSError *__autoreleasing *) outError;
 
-- (id)synchronouslyDeletePath:(NSString *)path
-                   parameters:(NSDictionary *)parameters
-                    operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                        error:(NSError *__autoreleasing *)outError;
+- (id)syncDELETE:(NSString *)path
+      parameters:(NSDictionary *)parameters
+       operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+           error:(NSError *__autoreleasing *) outError;
 
-- (id)synchronouslyPatchPath:(NSString *)path
-                  parameters:(NSDictionary *)parameters
-                   operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                       error:(NSError *__autoreleasing *)outError;
+- (id)syncPATCH:(NSString *)path
+     parameters:(NSDictionary *)parameters
+      operation:(AFHTTPRequestOperation *__autoreleasing *) operationPtr
+          error:(NSError *__autoreleasing *) outError;
 
 - (id)synchronouslyPerformMethod:(NSString *)method
-                            path:(NSString *)path
+                       URLString:(NSString *)URLString
                       parameters:(NSDictionary *)parameters
                        operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
                            error:(NSError *__autoreleasing *)outError;
-
-- (id)synchronouslyPostPath:(NSString *)path
-                       data:(NSData *)data
-                 serializer:(AFHTTPRequestSerializer*)serializer
-                  operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                      error:(NSError *__autoreleasing *)outError;
-
-- (id)synchronouslyPutPath:(NSString *)path
-                      data:(NSData *)data
-                serializer:(AFHTTPRequestSerializer*)serializer
-                 operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                     error:(NSError *__autoreleasing *)outError;
-
-- (id)synchronouslyDeletePath:(NSString *)path
-                      data:(NSData *)data
-                serializer:(AFHTTPRequestSerializer*)serializer
-                 operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
-                     error:(NSError *__autoreleasing *)outError;
 
 @end
