@@ -1,7 +1,10 @@
 AFNetworking-Synchronous
 ========================
 
-A minimal category which extends [AFNetworking][] 1.x, specifically
+A minimal category which extends [AFNetworking][] to support synchronous
+requests.
+
+1.x, specifically
 `AFHTTPClient`, to support synchronous requests.
 
 ## Example
@@ -48,9 +51,12 @@ This category is suitable for most of the request operation subclasses built int
  
 All custom subclasses must override `-responseObject`. See `AFHTTPRequestOperation+ResponseObject.h` for more information.
 
-## Notes
 
-Developed for Mac OS and iOS. Tested on Mac OS.
+## Acknowledgements
 
+- [EliSchleifer][] for AFNetworking 2.x support
+
+
+[EliSchleifer]: https://github.com/EliSchleifer
 [AFNetworking]: https://github.com/AFNetworking/AFNetworking
 [using-completion-blocks]: https://github.com/noa--/AFNetworking-Synchronous/tree/using-completion-blocks
