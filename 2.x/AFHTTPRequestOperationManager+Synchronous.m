@@ -31,7 +31,7 @@
                        operation:(AFHTTPRequestOperation *__autoreleasing *)operationPtr
                            error:(NSError *__autoreleasing *)outError {
 
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:@"GET" URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
 
     AFHTTPRequestOperation *op = [self HTTPRequestOperationWithRequest:request
                                                                success:nil
