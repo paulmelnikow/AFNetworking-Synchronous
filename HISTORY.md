@@ -1,5 +1,11 @@
 # AFNetworking-Synchronous Release History
 
+## v0.3.1
+February 24, 2015
+
+Fix issue in 2.x where method is always GET.
+
+
 ## v0.3.0
 December 26, 2014
 
