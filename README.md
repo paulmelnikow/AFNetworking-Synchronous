@@ -13,6 +13,9 @@ requests.
 ```
 
 ```objective-c
+#import <AFNetworking.h>
+#import <AFHTTPRequestOperationManager+Synchronous.h>
+
 AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:...];
 NSError *error = nil;
 NSData *result = [client synchronouslyGetPath:@"/document/123"
@@ -29,6 +32,9 @@ NSData *result = [client synchronouslyGetPath:@"/document/123"
 ```
 
 ```objective-c
+#import <AFNetworking.h>
+#import <AFHTTPRequestOperationManager+Synchronous.h>
+
 AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 NSError *error = nil;
 NSData *result = [manager syncGET:@"/document/123"
