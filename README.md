@@ -4,6 +4,13 @@ AFNetworking-Synchronous
 A minimal category which extends [AFNetworking][] to support synchronous
 requests.
 
+[![Version](https://img.shields.io/cocoapods/v/AFNetworking-Synchronous.svg)](http://cocoapods.org/pods/AFNetworking-Synchronous)
+[![License](https://img.shields.io/cocoapods/l/AFNetworking-Synchronous.svg?style=flat)](http://cocoapods.org/pods/AFNetworking-Synchronous)
+[![Platform](https://img.shields.io/cocoapods/p/AFNetworking-Synchronous.svg?style=flat)](http://cocoapods.org/pods/AFNetworking-Synchronous)
+[![Downloads](https://img.shields.io/cocoapods/dm/AFNetworking-Synchronous.svg)](http://cocoapods.org/pods/AFNetworking-Synchronous)
+
+![It's synchronous](https://raw.githubusercontent.com/paulmelnikow/AFNetworking-Synchronous/assets/synchronized_diving.gif)
+
 
 Usage
 -----
