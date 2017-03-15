@@ -6,7 +6,21 @@ before_install:
   - curl -sL https://gist.github.com/henrikhodne/7ac6d02ff9a24a94720c/raw/install_appledoc.sh |
     sh
 
+before_script:
+  - (cd 3.x/TestProject && pod install)
+  - (cd 2.x/TestProject && pod install)
+  - (cd 1.x/TestProject && pod install)
+
 script:
+  - set -o pipefail &&
+    xcodebuild
+    test
+    -destination 'platform=iOS Simulator,name=iPhone 7 Plus,OS=10.2'
+    -workspace 3.x/TestProject/TestProject.xcworkspace
+    -scheme Tests
+    -sdk iphonesimulator10.2
+    ONLY_ACTIVE_ARCH=NO |
+    xcpretty
   - set -o pipefail &&
     xcodebuild
     test
