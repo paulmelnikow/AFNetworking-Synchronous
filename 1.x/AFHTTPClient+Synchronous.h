@@ -8,7 +8,7 @@ FOUNDATION_EXPORT NSInteger const AFHTTPClientBackgroundTaskExpiredError;
 /**
  A minimal category which extends AFHTTPClient to support synchronous requests.
 
- Custom subclasses of `AFHTTPRequestOperation` must override `-responseObject`.
+ Custom subclasses of AFHTTPRequestOperation must override `-responseObject`.
 
  If a custom subclass does asynchronous processing in its completion blocks, you
  may need to use the using-completion-blocks branch.
@@ -16,14 +16,14 @@ FOUNDATION_EXPORT NSInteger const AFHTTPClientBackgroundTaskExpiredError;
 @interface AFHTTPClient (Synchronous)
 
 /**
- Enqueue an `AFHTTPRequestOperation` with a `GET` request.
+ Enqueue an AFHTTPRequestOperation with a GET request.
 
  @param path The path to be appended to the HTTP client's base URL and used as the
     request URL.
  @param parameters The parameters to be encoded and appended as the query string for
     the request URL.
  @param operationPtr The address at which a pointer to the
-    `AFHTTPRequestOperation` is placed.
+    AFHTTPRequestOperation is placed.
  @param outError The address at which a pointer to an error object is placed
     when the request operation finishes unsucessfully.
 
@@ -35,13 +35,13 @@ FOUNDATION_EXPORT NSInteger const AFHTTPClientBackgroundTaskExpiredError;
                      error:(NSError *__autoreleasing *)outError;
 
 /**
- Enqueue an `AFHTTPRequestOperation` with a `POST` request.
+ Enqueue an AFHTTPRequestOperation with a POST request.
 
  @param path The path to be appended to the HTTP client's base URL and used as the
     request URL.
  @param parameters The parameters to be encoded and set in the request HTTP body.
  @param operationPtr The address at which a pointer to the
-    `AFHTTPRequestOperation` is placed.
+    AFHTTPRequestOperation is placed.
  @param outError The address at which a pointer to an error object is placed
     when the request operation finishes unsucessfully.
 
@@ -53,13 +53,13 @@ FOUNDATION_EXPORT NSInteger const AFHTTPClientBackgroundTaskExpiredError;
                       error:(NSError *__autoreleasing *)outError;
 
 /**
- Enqueue an `AFHTTPRequestOperation` with a `PUT` request.
+ Enqueue an AFHTTPRequestOperation with a PUT request.
 
  @param path The path to be appended to the HTTP client's base URL and used as the
     request URL.
  @param parameters The parameters to be encoded and set in the request HTTP body.
  @param operationPtr The address at which a pointer to the
-    `AFHTTPRequestOperation` is placed.
+    AFHTTPRequestOperation is placed.
  @param outError The address at which a pointer to an error object is placed
     when the request operation finishes unsucessfully.
 
@@ -71,14 +71,14 @@ FOUNDATION_EXPORT NSInteger const AFHTTPClientBackgroundTaskExpiredError;
                      error:(NSError *__autoreleasing *)outError;
 
 /**
- Enqueue an `AFHTTPRequestOperation` with a `DELETE` request.
+ Enqueue an AFHTTPRequestOperation with a DELETE request.
 
  @param path The path to be appended to the HTTP client's base URL and used as the
     request URL.
  @param parameters The parameters to be encoded and appended as the query string for
     the request URL.
  @param operationPtr The address at which a pointer to the
-    `AFHTTPRequestOperation` is placed.
+    AFHTTPRequestOperation is placed.
  @param outError The address at which a pointer to an error object is placed
     when the request operation finishes unsucessfully.
 
@@ -90,13 +90,13 @@ FOUNDATION_EXPORT NSInteger const AFHTTPClientBackgroundTaskExpiredError;
                         error:(NSError *__autoreleasing *)outError;
 
 /**
- Enqueue an `AFHTTPRequestOperation` with a `PATCH` request.
+ Enqueue an AFHTTPRequestOperation with a PATCH request.
 
  @param path The path to be appended to the HTTP client's base URL and used as the
     request URL.
  @param parameters The parameters to be encoded and set in the request HTTP body.
  @param operationPtr The address at which a pointer to the
-    `AFHTTPRequestOperation` is placed.
+    AFHTTPRequestOperation is placed.
  @param outError The address at which a pointer to an error object is placed
     when the request operation finishes unsucessfully.
 
@@ -108,14 +108,14 @@ FOUNDATION_EXPORT NSInteger const AFHTTPClientBackgroundTaskExpiredError;
                        error:(NSError *__autoreleasing *)outError;
 
 /**
- Enqueue an `AFHTTPRequestOperation` with a request for the given HTTP method.
+ Enqueue an AFHTTPRequestOperation with a request for the given HTTP method.
 
  @param method The HTTP method.
  @param path The path to be appended to the HTTP client's base URL and used as the
     request URL.
  @param parameters The parameters to be encoded and set in the request HTTP body.
  @param operationPtr The address at which a pointer to the
-    `AFHTTPRequestOperation` is placed.
+    AFHTTPRequestOperation is placed.
  @param outError The address at which a pointer to an error object is placed
     when the request operation finishes unsucessfully.
 
