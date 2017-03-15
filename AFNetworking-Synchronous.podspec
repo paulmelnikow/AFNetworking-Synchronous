@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'AFNetworking-Synchronous'
-  s.version      = '1.0.0'
+  s.version      = '2.0.0-dev'
   s.summary      = 'Synchronous requests for AFNetworking'
   s.description  = <<-DESC
                    A minimal category which extends AFNetworking to support synchronous
