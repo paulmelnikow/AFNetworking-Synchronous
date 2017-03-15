@@ -1,0 +1,45 @@
+PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking-Synchronous/2.x (2.0.0-dev):
+    - AFNetworking (~> 2.0)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Expecta (1.0.5)
+  - Specta (1.0.6)
+
+DEPENDENCIES:
+  - AFNetworking-Synchronous/2.x (from `../../`)
+  - Expecta
+  - Specta
+
+EXTERNAL SOURCES:
+  AFNetworking-Synchronous:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  AFNetworking-Synchronous: cdb8532ac2d11fc4b0e735cb58d322715b523295
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
+
+PODFILE CHECKSUM: fd480bf1459fe3254430000aabe8990a777f8455
+
+COCOAPODS: 1.2.0

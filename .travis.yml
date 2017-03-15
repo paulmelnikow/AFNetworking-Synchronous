@@ -11,6 +11,15 @@ script:
     xcodebuild
     test
     -destination 'platform=iOS Simulator,name=iPhone 7 Plus,OS=10.2'
+    -workspace 2.x/TestProject/TestProject.xcworkspace
+    -scheme Tests
+    -sdk iphonesimulator10.2
+    ONLY_ACTIVE_ARCH=NO |
+    xcpretty
+  - set -o pipefail &&
+    xcodebuild
+    test
+    -destination 'platform=iOS Simulator,name=iPhone 7 Plus,OS=10.2'
     -workspace 1.x/TestProject/TestProject.xcworkspace
     -scheme Tests
     -sdk iphonesimulator10.2
