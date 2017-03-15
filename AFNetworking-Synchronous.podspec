@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = 'Synchronous requests for AFNetworking'
   s.description  = <<-DESC
                    A minimal category which extends AFNetworking to support synchronous
-                   requests. Supports AFNetworking 1.x or 2.x.
+                   requests. Supports AFNetworking 1.x, 2.x, and 3.x.
                    DESC
   s.homepage     = 'https://github.com/paulmelnikow/AFNetworking-Synchronous'
   s.license      = 'MIT'
@@ -12,21 +12,32 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/paulmelnikow/AFNetworking-Synchronous.git',
                      :tag => "#{s.version}" }
 
-  s.ios.deployment_target = '6.0'
   s.requires_arc = true
 
-  s.subspec '1.x' do |sp|
-    s.osx.deployment_target = '10.7'
-    sp.source_files = '1.x/*.{h,m}'
-    sp.dependency 'AFNetworking', '~> 1.0'
+  s.ios.deployment_target = '7.0'
+  s.osx.deployment_target = '10.9'
+  s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
+
+  s.subspec '3.x' do |sp|
+    sp.source_files = '3.x/*.{h,m}'
+    sp.dependency 'AFNetworking', '~> 3.0'
   end
 
   s.subspec '2.x' do |sp|
-    s.osx.deployment_target = '10.8'
+    sp.ios.deployment_target = '6.0'
+    sp.osx.deployment_target = '10.8'
     sp.source_files = '2.x/*.{h,m}'
     sp.dependency 'AFNetworking', '~> 2.0'
   end
 
-  s.default_subspec = '2.x'
+  s.subspec '1.x' do |sp|
+    sp.ios.deployment_target = '6.0'
+    sp.osx.deployment_target = '10.7'
+    sp.source_files = '1.x/*.{h,m}'
+    sp.dependency 'AFNetworking', '~> 1.0'
+  end
+
+  s.default_subspec = '3.x'
 
 end
