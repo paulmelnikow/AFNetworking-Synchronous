@@ -96,7 +96,7 @@ it can't anticipate every possible situation. In particular, you should not
 set the queue from which you're invoking as the processing queue, which will
 cause a deadlock.
 
-### The Main Thread
+### The main thread
 
 You shouldn't call these methods from the main thread. On iOS, if your
 application enters the background while one of these methods is running on the
