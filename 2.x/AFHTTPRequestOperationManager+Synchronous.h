@@ -101,8 +101,7 @@
  Enqueue an AFHTTPRequestOperation with a request for the given HTTP method.
 
  @param method The HTTP method.
- @param path The path to be appended to the HTTP client's base URL and used as the
-    request URL.
+ @param URLString The URL string used to create the request URL.
  @param parameters The parameters to be encoded and set in the request HTTP body.
  @param operationPtr The address at which a pointer to the
     AFHTTPRequestOperation is placed.

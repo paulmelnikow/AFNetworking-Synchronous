@@ -30,7 +30,7 @@ script:
     --project-company 'Paul Melnikow'
     --company-id 'com.paulmelnikow.afnetworking-synchronous'
     -o /tmp
-    1.x 2.x
+    1.x/*.h 2.x/*.h
   - pod lib lint --allow-warnings
 
 notifications:
