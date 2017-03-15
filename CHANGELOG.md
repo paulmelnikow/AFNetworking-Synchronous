@@ -1,5 +1,13 @@
 # AFNetworking-Synchronous Release History
 
+## v1.0.0
+March 14, 2017
+
+The API is identical to 0.3.x, which has been stable for some time.
+
+Clean up documentation.
+
+
 ## v0.3.1
 February 24, 2015
 
