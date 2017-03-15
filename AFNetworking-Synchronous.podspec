@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Paul Melnikow" => "github@paulmelnikow.com" }
   s.source       = { :git => 'https://github.com/paulmelnikow/AFNetworking-Synchronous.git',
-                     :tag => "v#{s.version}" }
+                     :tag => "#{s.version}" }
 
   s.ios.deployment_target = '6.0'
   s.requires_arc = true
