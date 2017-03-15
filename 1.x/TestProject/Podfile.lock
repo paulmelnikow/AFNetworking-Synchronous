@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
-  AFNetworking-Synchronous: cdb8532ac2d11fc4b0e735cb58d322715b523295
+  AFNetworking-Synchronous: 61cdd7c4526f35b6e964b9b6f60562e4e5a75a5d
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
 
