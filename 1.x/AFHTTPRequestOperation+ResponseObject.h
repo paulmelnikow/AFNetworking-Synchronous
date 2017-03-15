@@ -1,11 +1,3 @@
-//
-//  AFHTTPRequestOperation+ResponseObject.h
-//  EQDocs
-//
-//  Created by Paul Melnikow on 5/17/13.
-//
-//
-
 #import "AFNetworking.h"
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
@@ -14,27 +6,50 @@
 #import <Cocoa/Cocoa.h>
 #endif
 
+/**
+ Category definining a method on `AFHTTPRequestOperation` which subclasses
+ should use to return response data.
+ */
 @interface AFHTTPRequestOperation (ResponseObject)
 
 /**
- Category defines an abstract method on AFHTTPRequestOperation which subclasses should use to return response data.
- 
- If you use custom operation subclasses, be sure to define this method in your subclass. Note that if your subclass does asynchronous processing in its completion blocks, you may need to use the using-completion-blocks branch instead. See AFHTTPClient+Synchronous.h for more information.
- 
- Subclasses must override this method, and may redeclare it to indicate its type.
+ Return an object derived from the response data.
+
+ Subclasses must override this method, and may redeclare it to indicate its
+ type.
+
+ If a custom subclass does asynchronous processing in its completion blocks,
+ you may need to use the using-completion-blocks branch.
  */
 - (id) responseObject;
 
 @end
 
+/**
+ Implementation of the `ResponseObject` categor for `AFXMLRequestOperation`.
+ */
 @interface AFXMLRequestOperation (ResponseObject)
 
+/**
+ An `NSXMLParser` object constructed from the response data.
+ */
 - (NSXMLParser *) responseObject;
 
 @end
 
+/**
+ Implementation of the `ResponseObject` categor for `AFImageRequestOperation`.
+
+ If you're using the `processingBlock`, which contains essential processing in
+ the completion handler, or your subclass performs other asynchronous
+ processing in the completion handler, use the version in the
+ using-completion-blocks branch.
+ */
 @interface AFImageRequestOperation (ResponseObject)
 
+/**
+ An image constructed from the response data.
+ */
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 - (UIImage *) responseObject;
 #elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)

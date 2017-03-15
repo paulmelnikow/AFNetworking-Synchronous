@@ -1,11 +1,3 @@
-//
-//  AFHTTPRequestOperation+ResponseObject.m
-//  EQDocs
-//
-//  Created by Paul Melnikow on 5/17/13.
-//
-//
-
 #import "AFHTTPRequestOperation+ResponseObject.h"
 
 @implementation AFHTTPRequestOperation (ResponseObject)
