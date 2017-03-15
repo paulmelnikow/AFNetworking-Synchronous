@@ -1,0 +1,25 @@
+PODS:
+  - AFNetworking (1.3.4)
+  - AFNetworking-Synchronous/1.x (2.0.0-dev):
+    - AFNetworking (~> 1.0)
+  - Expecta (1.0.5)
+  - Specta (1.0.6)
+
+DEPENDENCIES:
+  - AFNetworking-Synchronous/1.x (from `../../`)
+  - Expecta
+  - Specta
+
+EXTERNAL SOURCES:
+  AFNetworking-Synchronous:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
+  AFNetworking-Synchronous: cdb8532ac2d11fc4b0e735cb58d322715b523295
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
+
+PODFILE CHECKSUM: cbb9fb0bd181d07cc245085afeb8bbc4e2447322
+
+COCOAPODS: 1.2.0

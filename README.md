@@ -116,6 +116,16 @@ version in the [using-completion-blocks branch][using-completion-blocks].**
 All custom subclasses must override `-responseObject`. See `AFHTTPRequestOperation+ResponseObject.h` for more information.
 
 
+Development
+-----------
+
+This project includes integration tests which use the delightful service
+[httpbin][]. To run them, run `pod install` inside the `TestProject` folder,
+then load the workspace and execute the test action.
+
+[httpbin]: https://httpbin.org/
+
+
 Acknowledgements
 ----------------
 

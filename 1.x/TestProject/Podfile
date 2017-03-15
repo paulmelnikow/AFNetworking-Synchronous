@@ -1,0 +1,8 @@
+use_frameworks!
+target 'Tests' do
+  pod 'AFNetworking-Synchronous/1.x', :path => '../../'
+
+  pod 'Specta'
+  pod 'Expecta'
+end
+
