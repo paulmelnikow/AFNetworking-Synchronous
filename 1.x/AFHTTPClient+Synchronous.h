@@ -8,6 +8,8 @@ FOUNDATION_EXPORT NSInteger const AFHTTPClientBackgroundTaskExpiredError;
 /**
  A minimal category which extends AFHTTPClient to support synchronous requests.
 
+ **This category is for AFNetworking 1.x.**
+
  Custom subclasses of AFHTTPRequestOperation must override `-responseObject`.
 
  If a custom subclass does asynchronous processing in its completion blocks, you

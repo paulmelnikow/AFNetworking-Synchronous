@@ -3,6 +3,8 @@
 /**
  A minimal category which extends AFHTTPRequestOperationManager to support
  synchronous requests.
+
+ **This category is for AFNetworking 2.x.**
 */
 @interface AFHTTPRequestOperationManager (Synchronous)
 

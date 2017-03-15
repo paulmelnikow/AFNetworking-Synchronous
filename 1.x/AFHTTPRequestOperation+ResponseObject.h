@@ -9,6 +9,8 @@
 /**
  Category definining a method on `AFHTTPRequestOperation` which subclasses
  should use to return response data.
+
+ **This category is for AFNetworking 1.x.**
  */
 @interface AFHTTPRequestOperation (ResponseObject)
 
@@ -27,6 +29,8 @@
 
 /**
  Implementation of the `ResponseObject` categor for `AFXMLRequestOperation`.
+
+ **This category is for AFNetworking 1.x.**
  */
 @interface AFXMLRequestOperation (ResponseObject)
 
@@ -39,6 +43,8 @@
 
 /**
  Implementation of the `ResponseObject` categor for `AFImageRequestOperation`.
+
+ **This category is for AFNetworking 1.x.**
 
  If you're using the `processingBlock`, which contains essential processing in
  the completion handler, or your subclass performs other asynchronous
