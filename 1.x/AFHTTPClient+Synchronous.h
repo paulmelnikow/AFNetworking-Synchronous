@@ -1,4 +1,4 @@
-#import "AFHTTPClient.h"
+#import <AFNetworking/AFNetworking.h>
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 FOUNDATION_EXPORT NSString * const AFHTTPClientErrorDomain;

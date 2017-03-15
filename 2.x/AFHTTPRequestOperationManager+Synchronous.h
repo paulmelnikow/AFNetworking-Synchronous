@@ -1,4 +1,4 @@
-#import "AFHTTPRequestOperationManager.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 /**
  A minimal category which extends AFHTTPRequestOperationManager to support

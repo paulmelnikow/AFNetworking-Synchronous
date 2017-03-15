@@ -1,4 +1,9 @@
 #import "AFHTTPRequestOperation+ResponseObject.h"
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+#import <UIKit/UIKit.h>
+#elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)
+#import <Cocoa/Cocoa.h>
+#endif
 
 @implementation AFHTTPRequestOperation (ResponseObject)
 

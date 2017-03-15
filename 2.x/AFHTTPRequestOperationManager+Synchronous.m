@@ -1,5 +1,4 @@
 #import "AFHTTPRequestOperationManager+Synchronous.h"
-#import "AFNetworking.h"
 
 @implementation AFHTTPRequestOperationManager (Synchronous)
 

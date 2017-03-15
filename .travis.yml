@@ -8,3 +8,4 @@ script:
     --company-id 'com.paulmelnikow.afnetworking-synchronous'
     -o /tmp
     .
+  - pod lib lint
