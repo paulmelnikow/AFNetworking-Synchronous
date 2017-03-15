@@ -1,0 +1,10 @@
+language: objective-c
+before_install:
+  - curl -sL https://gist.github.com/henrikhodne/7ac6d02ff9a24a94720c/raw/install_appledoc.sh | sh
+script:
+  - appledoc
+    --project-name 'AFNetworking-Synchronous'
+    --project-company 'Paul Melnikow'
+    --company-id 'com.paulmelnikow.afnetworking-synchronous'
+    -o /tmp
+    .
