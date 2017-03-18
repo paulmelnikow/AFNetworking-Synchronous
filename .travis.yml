@@ -3,8 +3,9 @@ language: objective-c
 osx_image: xcode8.2
 
 before_install:
-  - curl -sL https://gist.github.com/henrikhodne/7ac6d02ff9a24a94720c/raw/install_appledoc.sh |
-    sh
+  - test $CI && curl -sSL https://raw.githubusercontent.com/paulmelnikow/simon-says/master/simon-says -o simon-says && chmod +x simon-says
+  - ./simon-says prepare
+  - ./simon-says appledoc install
 
 before_script:
   - (cd 3.x/TestProject && pod install)
@@ -12,41 +13,13 @@ before_script:
   - (cd 1.x/TestProject && pod install)
 
 script:
-  - set -o pipefail &&
-    xcodebuild
-    test
-    -destination 'platform=iOS Simulator,name=iPhone 7 Plus,OS=10.2'
-    -workspace 3.x/TestProject/TestProject.xcworkspace
-    -scheme Tests
-    -sdk iphonesimulator10.2
-    ONLY_ACTIVE_ARCH=NO |
-    xcpretty
-  - set -o pipefail &&
-    xcodebuild
-    test
-    -destination 'platform=iOS Simulator,name=iPhone 7 Plus,OS=10.2'
-    -workspace 2.x/TestProject/TestProject.xcworkspace
-    -scheme Tests
-    -sdk iphonesimulator10.2
-    ONLY_ACTIVE_ARCH=NO |
-    xcpretty
-  - set -o pipefail &&
-    xcodebuild
-    test
-    -destination 'platform=iOS Simulator,name=iPhone 7 Plus,OS=10.2'
-    -workspace 1.x/TestProject/TestProject.xcworkspace
-    -scheme Tests
-    -sdk iphonesimulator10.2
-    ONLY_ACTIVE_ARCH=NO |
-    xcpretty
-  - appledoc
-    --project-name 'AFNetworking-Synchronous'
-    --project-company 'Paul Melnikow'
-    --company-id 'com.paulmelnikow.afnetworking-synchronous'
-    -o /tmp
-    1.x/*.h 2.x/*.h
+  - ./simon-says test 3.x/TestProject/TestProject.xcworkspace Tests "platform=iOS Simulator,name=iPhone 7 Plus,OS=10.2"
+  - ./simon-says test 2.x/TestProject/TestProject.xcworkspace Tests "platform=iOS Simulator,name=iPhone 7 Plus,OS=10.2"
+  - ./simon-says test 1.x/TestProject/TestProject.xcworkspace Tests "platform=iOS Simulator,name=iPhone 7 Plus,OS=10.2"
+  - ./simon-says appledoc test 1.x/*.h 2.x/*.h 3.x/*.h
   - pod lib lint --allow-warnings
 
 notifications:
   slack:
+    on_success: change
     secure: L60jPEUeOW1Uimwmn6SImasEaFBdsGSqoPEZsamm9poukhBL3FVqtPRmCc8WMCCTvWtr6yRS0N+CnoClPsK3nL9q/ou0jh7OFcQ5Qgkfu5DNYvnoV9/7Yy0izcj9F2ZHVjuLF/R0OXmcuxmjsh3PRMqzSH9FNe6iiSDDOSSXpCA=
