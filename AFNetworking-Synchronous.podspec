@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = 'Synchronous requests for AFNetworking'
   s.description  = <<-DESC
                    A minimal category which extends AFNetworking to support synchronous
-                   requests. Supports AFNetworking 1.x, 2.x, and 3.x.
+                   requests. Supports AFNetworking 1.x, 2.x, 3.x, and 4.x.
                    DESC
   s.homepage     = 'https://github.com/paulmelnikow/AFNetworking-Synchronous'
   s.license      = 'MIT'
@@ -18,6 +18,11 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.9'
   s.watchos.deployment_target = '2.0'
   s.tvos.deployment_target = '9.0'
+  
+  s.subspec '4.x' do |sp|
+    sp.source_files = '4.x/*.{h,m}'
+    sp.dependency 'AFNetworking', '~> 4.0'
+  end
 
   s.subspec '3.x' do |sp|
     sp.source_files = '3.x/*.{h,m}'

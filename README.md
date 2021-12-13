@@ -16,6 +16,40 @@ requests.
 Usage
 -----
 
+### 4.x
+
+```rb
+  pod 'AFNetworking', '~> 4.0'
+  pod 'AFNetworking-Synchronous/4.x'
+```
+
+```objective-c
+#import <AFNetworking.h>
+#import <AFHTTPSessionManager+Synchronous.h>
+
+AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+NSError *error = nil;
+NSData *result = [manager syncGET:@"/document/123"
+                       parameters:paramDict
+                       headers:headerDict
+                             task:NULL
+                            error:&error];
+```
+
+Your synchronous request will never return if it is dispatched on the session
+manager's completion queue.
+
+You really should not perform a synchronous network request on the main thread
+on iOS, as it's likely to cause a crash when run outside the debugger. You
+probably should not on OS X either, as it's likely to cause lags in the UI.
+
+If you must do so, create a separate queue for the completion handlers:
+
+```objective-c
+manager.completionQueue = dispatch_queue_create("AFNetworking+Synchronous", NULL);
+```
+
+
 ### 3.x
 
 ```rb
